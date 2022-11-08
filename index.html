@@ -12,7 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -48,19 +50,19 @@
         </div>
         <div class="model">
             <div>
-                <div>
+                <div onclick="choose2(this)" id="golav">
                     <img src="./assets/images/GolaV.png" alt="GolaV">
                 </div>
                 <p>Gola V</p>
             </div>
             <div>
-                <div>
+                <div onclick="choose2(this)" id="golaredonda">
                     <img src="./assets/images/GolaRedonda.png" alt="GolaRedonda">
                 </div>
                 <p>Gola redonda</p>
             </div>
             <div>
-                <div>
+                <div onclick="choose2(this)" id="golapolo">
                     <img src="./assets/images/GolaPolo.png" alt="GolaPolo">
                 </div>
                 <p>Gola polo</p>
@@ -71,19 +73,19 @@
         </div>
         <div class="model">
             <div>
-                <div>
+                <div onclick="choose3(this)" id="seda">
                     <img src="./assets/images/Seda.png" alt="Seda">
                 </div>
                 <p>Seda</p>
             </div>
             <div>
-                <div>
+                <div onclick="choose3(this)" id="algodao">
                     <img src="./assets/images/Algodão.png" alt="Algodão">
                 </div>
                 <p>Algodão</p>
             </div>
             <div>
-                <div>
+                <div onclick="choose3(this)" id="poliester">
                     <img src="./assets/images/Poliester.png" alt="Poliester">
                 </div>
                 <p>Poliester</p>
@@ -92,7 +94,7 @@
         <div class="ref_link">
             <p>Insira o link de referência</p>
             <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="60"required>
-            <button>Confirmar pedido</button>
+            <button onclick="proceed()" id="btn_confirm">Confirmar pedido</button>
         </div>
         
     </section>
@@ -103,6 +105,24 @@
     
 </div>
 <footer>
+    <div>
+        <p style="
+        margin-bottom: 15px;
+    ">Últimos pedidos</p>
+    
+        <div class="last_orders">
+            <div style="overflow: hidden;">
+                <div class="order">
+                    <img src="./assets/images/Blusa1.png" alt="Blusa1">
+                    <p>Criador: Agata</p>
+                </div>
+            </div>
+            <div class="order">
+                <img src="./assets/images/Blusa1.png" alt="Blusa1">
+                <p>Criador: Agata</p>
+            </div>
+    </div>
+    </div>
         
 </footer>
     
