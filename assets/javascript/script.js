@@ -1,4 +1,6 @@
 
+let userName = prompt('Entre com o seu nome de usuário: ');
+
 
 document.getElementById('btn_confirm').onclick = null;
 
@@ -101,10 +103,19 @@ function confirmButton() {
 }
 
 
+
+let url;
 function proceed() {
+     url = document.getElementById('url').value
+     alert('Confirmando encomenda...')
     element = document.querySelector('.last_orders')
     element.innerHTML += '<div class="order"> <img src="./assets/images/Blusa1.png" alt="Blusa1"><p>Criador: Agata</p></div>'
 }
 
-///o que fazer? replicar isso para os outros.
+let promise;
+function get() {
+   promise =  axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
+    .then(console.log(promise))
+}
+
 
