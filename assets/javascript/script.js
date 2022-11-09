@@ -182,21 +182,25 @@ function copy(i) {
     
     if(confirm("Encomendar um produto igual?")=== true) {
     let id = i.id
+
     promise =  axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
     .then((response) => {
+        
     ownerImg = response.data[id].image
     ownerMaterial = response.data[id].material
     ownerShirt = response.data[id].model
     ownerNeck = response.data[id].neck
+    creator = response.data[id].owner
     
-    let newTshirt = {
+    newTshirt = {
         model: ownerShirt,
         neck: ownerNeck,
         material: ownerMaterial,
         image: ownerImg,
         owner: userName,
-        author: userName   
+        author: creator   
     }
+    console.log(newTshirt)
 
     axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts',newTshirt)
     .then(getTshirts);})

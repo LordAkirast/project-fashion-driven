@@ -103,10 +103,12 @@ button {
     height: 40px;
     border-radius: 10px;
     border-color: #C4C4C4;
+    color: white;
 }
 
 .button_confirm {
     background-color: #404EED;
+    color: white;
 }
 
 .confirm-shirt {
