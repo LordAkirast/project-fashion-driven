@@ -173,53 +173,44 @@ function getTshirts() {
         model = response.data[i].model
         neck = response.data[i].neck
         owner = response.data[i].owner
-        element.innerHTML += `<div class="order" onclick="copy(this)"> <img src="${image}" style="width:180px; height: 180px" alt="Blusa1"><p>Criador: ${owner}</p></div>`
+        element.innerHTML += `<div class="order" id=${i} onclick="copy(this)"> <img src="${image}" style="width:180px; height: 180px" alt="Blusa1"><p>Criador: ${owner}</p></div>`
         }
     });
 }
 
-function copy() {
-    /*material*/
-    if(material === 'cotton') {
-        document.getElementById('cotton').click();
+function copy(i) {
+    
+    if(confirm("Encomendar um produto igual?")=== true) {
+    let id = i.id
+    promise =  axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
+    .then((response) => {
+    ownerImg = response.data[id].image
+    ownerMaterial = response.data[id].material
+    ownerShirt = response.data[id].model
+    ownerNeck = response.data[id].neck
+    
+    let newTshirt = {
+        model: ownerShirt,
+        neck: ownerNeck,
+        material: ownerMaterial,
+        image: ownerImg,
+        owner: userName,
+        author: userName   
     }
 
-    else if(material === 'polyester') {
-        document.getElementById('polyester').click();
-    }
-
-    else if(material === 'silk') {
-        document.getElementById('silk').click();
-    }
-
-    /*model*/
-
-    if(model === 'top-tank') {
-        document.getElementById('top-tank').click();
-    }
-
-    else if(model === 't-shirt') {
-        document.getElementById('t-shirt').click();
-    }
-
-    else if(model === 'long') {
-        document.getElementById('long').click();
-    }
-
-     /*neck*/
-
-     if(neck === 'v-neck') {
-        document.getElementById('v-neck').click();
-    }
-
-    else if(neck === 'round') {
-        document.getElementById('round').click();
-    }
-
-    else if(neck === 'polo') {
-        document.getElementById('polo').click();
-    }
-
+    axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts',newTshirt)
+    .then(getTshirts);})
+} else {
+    alert("Cancelando encomenda...")
 }
+
+    
+
+     
+     
+   
+   
+}
+
 
 getTshirts();
