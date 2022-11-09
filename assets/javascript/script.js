@@ -113,9 +113,77 @@ function proceed() {
 }
 
 let promise;
+let id;
+let image;
+let material;
+let model;
+let neck;
+let owner;
+
 function get() {
    promise =  axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
-    .then(console.log(promise))
+    .then((response) => {
+        console.log(response.data);
+        for(let i in response.data) {
+        id = response.data[i].id
+        image = response.data[i].image
+        material = response.data[i].material
+        model = response.data[i].model
+        neck = response.data[i].neck
+        owner = response.data[i].owner
+        element = document.querySelector('.last_orders')
+    element.innerHTML += `<div class="order" onclick="copy()"> <img src="${image}" style="width:180px; height: 180px" alt="Blusa1"><p>Criador: ${owner}</p></div>`
+    console.log(id)
+    console.log(image)
+    console.log(material)
+    console.log(model)
+    console.log(neck)
+    console.log(owner)
+        }
+    });
 }
 
+function copy() {
+    /*material*/
+    if(material === 'cotton') {
+        document.getElementById('algodao').click();
+    }
+
+    else if(material === 'polyester') {
+        document.getElementById('poliester').click();
+    }
+
+    else if(material === 'silk') {
+        document.getElementById('silk').click();
+    }
+
+    /*model*/
+
+    if(model === 'top-tank') {
+        document.getElementById('camiseta').click();
+    }
+
+    else if(model === 't-shirt') {
+        document.getElementById('tshirt').click();
+    }
+
+    else if(model === 'long') {
+        document.getElementById('mangalonga').click();
+    }
+
+     /*neck*/
+
+     if(neck === 'v-neck') {
+        document.getElementById('golav').click();
+    }
+
+    else if(neck === 'round') {
+        document.getElementById('golaredonda').click();
+    }
+
+    else if(neck === 'polo') {
+        document.getElementById('golapolo').click();
+    }
+
+}
 

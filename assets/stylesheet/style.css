@@ -127,7 +127,7 @@ footer {
     background-color: #F2F2F2;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 .last_orders {
