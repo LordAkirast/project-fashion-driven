@@ -109,7 +109,15 @@ button {
     background-color: #404EED;
 }
 
-.confirm {
+.confirm-shirt {
+    border-color: #404EED !important;
+}
+
+.confirm-neck {
+    border-color: #404EED !important;
+}
+
+.confirm-material {
     border-color: #404EED !important;
 }
 

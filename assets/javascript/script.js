@@ -1,35 +1,46 @@
+let ownerShirt;
+let ownerNeck;
+let ownerMaterial;
+let ownerImg;
+
 
 let userName = prompt('Entre com o seu nome de usuário: ');
 
 
 document.getElementById('btn_confirm').onclick = null;
 
-let tshirt = 0;
-let camiseta = 0;
-let mangalonga = 0;
-function choose1(selected) {
-    document.getElementById('camiseta').classList.remove('confirm')
-    document.getElementById('mangalonga').classList.remove('confirm')
-    document.getElementById('tshirt').classList.remove('confirm')
+let tShirt = 0;
+let topTank = 0;
+let long = 0;
+function chooseModel(selected) {
+    const element = document.querySelector('.confirm-shirt')
+    if (element !== null) {
+        element.classList.remove('confirm-shirt')
+    }
+    selected.classList.add('confirm-shirt')
+    ownerShirt = selected.getAttribute('id')
+    confirmButton()
+    /* document.getElementById('top-tank').classList.remove('confirm')
+    document.getElementById('long').classList.remove('confirm')
+    document.getElementById('t-shirt').classList.remove('confirm')
     selected.classList.toggle('confirm')
 
-    if (document.getElementById('tshirt').classList.contains('confirm')) {
-    tshirt = 1;
-    camiseta = 0;
-    mangalonga = 0;
+    if (document.getElementById('t-shirt').classList.contains('confirm')) {
+    tShirt = 1;
+    topTank = 0;
+    long = 0;
     confirmButton();
-    } else if (document.getElementById('camiseta').classList.contains('confirm')) {
-        camiseta = 1;
-        tshirt = 0;
-        mangalonga = 0;
+    } else if (document.getElementById('top-tank').classList.contains('confirm')) {
+        topTank = 1;
+        tShirt = 0;
+        long = 0;
         confirmButton();
-    } else if (document.getElementById('mangalonga').classList.contains('confirm')) {
-        mangalonga = 1;
-        tshirt = 0;
-        camiseta = 0
+    } else if (document.getElementById('long').classList.contains('confirm')) {
+        long = 1;
+        tShirt = 0;
+        topTank = 0
         confirmButton();
-    }
-    console.log(tshirt,camiseta,mangalonga)
+    } */
 
 } 
 
@@ -37,29 +48,35 @@ function choose1(selected) {
 let golav = 0;
 let golaredonda = 0;
 let golapolo = 0;
-function choose2(selected) {
-    document.getElementById('golav').classList.remove('confirm')
-    document.getElementById('golaredonda').classList.remove('confirm')
-    document.getElementById('golapolo').classList.remove('confirm')
+function chooseNeck(selected) {
+    const element = document.querySelector('.confirm-neck')
+    if (element !== null) {
+        element.classList.remove('confirm-neck')
+    }
+    selected.classList.add('confirm-neck')
+    ownerNeck = selected.getAttribute('id')
+    confirmButton();
+   /*  document.getElementById('v-neck').classList.remove('confirm')
+    document.getElementById('round').classList.remove('confirm')
+    document.getElementById('polo').classList.remove('confirm')
     selected.classList.toggle('confirm')
 
-    if (document.getElementById('golav').classList.contains('confirm')) {
+    if (document.getElementById('v-neck').classList.contains('confirm')) {
         golav = 1;
         golaredonda = 0;
         golapolo = 0;
         confirmButton();
-    } else if (document.getElementById('golaredonda').classList.contains('confirm')) {
+    } else if (document.getElementById('round').classList.contains('confirm')) {
         golav = 0;
         golaredonda = 1;
         golapolo = 0;
         confirmButton();
-    } else if (document.getElementById('golapolo').classList.contains('confirm')) {
+    } else if (document.getElementById('polo').classList.contains('confirm')) {
         golav = 0;
         golaredonda = 0;
         golapolo = 1;
         confirmButton();
-    }
-    console.log(golav,golaredonda,golapolo)
+    } */
 
 } 
 
@@ -68,48 +85,72 @@ function choose2(selected) {
 let seda = 0;
 let algodao = 0;
 let poliester = 0;
-function choose3(selected) {
-    document.getElementById('seda').classList.remove('confirm')
-    document.getElementById('algodao').classList.remove('confirm')
-    document.getElementById('poliester').classList.remove('confirm')
+function chooseMaterial(selected) {
+    const element = document.querySelector('.confirm-material')
+    if (element !== null) {
+        element.classList.remove('confirm-material')
+    }
+    selected.classList.add('confirm-material')
+    ownerMaterial = selected.getAttribute('id')
+    confirmButton()
+    /* document.getElementById('silk').classList.remove('confirm')
+    document.getElementById('cotton').classList.remove('confirm')
+    document.getElementById('polyester').classList.remove('confirm')
     selected.classList.toggle('confirm')
 
-    if (document.getElementById('seda').classList.contains('confirm')) {
+    if (document.getElementById('silk').classList.contains('confirm')) {
         seda = 1;
         algodao = 0;
         poliester = 0;
         confirmButton();
-    } else if (document.getElementById('algodao').classList.contains('confirm')) {
+    } else if (document.getElementById('cotton').classList.contains('confirm')) {
         seda = 0;
         algodao = 1;
         poliester = 0;
         confirmButton();
-    } else if (document.getElementById('poliester').classList.contains('confirm')) {
+    } else if (document.getElementById('polyester').classList.contains('confirm')) {
         seda = 0;
         algodao = 0;
         poliester = 1;
         confirmButton();
-    }
-    console.log(seda,algodao,poliester)
+    } */
 
 } 
 
 function confirmButton() {
-    if(tshirt + camiseta + mangalonga + golav + golaredonda + golapolo + seda + algodao + poliester === 3) {
+    console.log(userName,ownerShirt,ownerNeck,ownerMaterial)
+    if(userName && ownerShirt && ownerNeck && ownerMaterial) {
         document.getElementById('btn_confirm').classList.add('button_confirm');
         document.getElementById('btn_confirm').onclick = proceed;
+
 
     }
 }
 
 
 
+
 let url;
 function proceed() {
+    alert('Confirmando encomenda...')
+    ownerImg = document.querySelector('input').value
+    let newTshirt = {
+        model: ownerShirt,
+        neck: ownerNeck,
+        material: ownerMaterial,
+        image: ownerImg,
+        owner: userName,
+        author: userName
+    }
+
      url = document.getElementById('url').value
-     alert('Confirmando encomenda...')
-    element = document.querySelector('.last_orders')
-    element.innerHTML += '<div class="order"> <img src="./assets/images/Blusa1.png" alt="Blusa1"><p>Criador: Agata</p></div>'
+     
+     console.log(newTshirt)
+   axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts',newTshirt)
+    .then(getTshirts);
+   
+
+
 }
 
 let promise;
@@ -120,10 +161,11 @@ let model;
 let neck;
 let owner;
 
-function get() {
+function getTshirts() {
    promise =  axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
     .then((response) => {
-        console.log(response.data);
+        element = document.querySelector('.last_orders')
+        element.innerHTML = ''
         for(let i in response.data) {
         id = response.data[i].id
         image = response.data[i].image
@@ -131,14 +173,7 @@ function get() {
         model = response.data[i].model
         neck = response.data[i].neck
         owner = response.data[i].owner
-        element = document.querySelector('.last_orders')
-    element.innerHTML += `<div class="order" onclick="copy()"> <img src="${image}" style="width:180px; height: 180px" alt="Blusa1"><p>Criador: ${owner}</p></div>`
-    console.log(id)
-    console.log(image)
-    console.log(material)
-    console.log(model)
-    console.log(neck)
-    console.log(owner)
+        element.innerHTML += `<div class="order" onclick="copy(this)"> <img src="${image}" style="width:180px; height: 180px" alt="Blusa1"><p>Criador: ${owner}</p></div>`
         }
     });
 }
@@ -146,11 +181,11 @@ function get() {
 function copy() {
     /*material*/
     if(material === 'cotton') {
-        document.getElementById('algodao').click();
+        document.getElementById('cotton').click();
     }
 
     else if(material === 'polyester') {
-        document.getElementById('poliester').click();
+        document.getElementById('polyester').click();
     }
 
     else if(material === 'silk') {
@@ -160,30 +195,31 @@ function copy() {
     /*model*/
 
     if(model === 'top-tank') {
-        document.getElementById('camiseta').click();
+        document.getElementById('top-tank').click();
     }
 
     else if(model === 't-shirt') {
-        document.getElementById('tshirt').click();
+        document.getElementById('t-shirt').click();
     }
 
     else if(model === 'long') {
-        document.getElementById('mangalonga').click();
+        document.getElementById('long').click();
     }
 
      /*neck*/
 
      if(neck === 'v-neck') {
-        document.getElementById('golav').click();
+        document.getElementById('v-neck').click();
     }
 
     else if(neck === 'round') {
-        document.getElementById('golaredonda').click();
+        document.getElementById('round').click();
     }
 
     else if(neck === 'polo') {
-        document.getElementById('golapolo').click();
+        document.getElementById('polo').click();
     }
 
 }
 
+getTshirts();
