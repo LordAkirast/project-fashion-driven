@@ -91,6 +91,17 @@ input {
    
 }
 
+.error {
+    background-color: #FFEFF2;
+    border: solid;
+    border-width: 1px;
+    border-color: #DFAEB9;
+}
+
+.displaynot {
+    opacity: 0;
+}
+
 button {
     display: flex;
     justify-content: center;

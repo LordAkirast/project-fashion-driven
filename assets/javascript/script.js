@@ -52,7 +52,6 @@ function chooseMaterial(selected) {
 } 
 
 function confirmButton() {
-    console.log(userName,ownerShirt,ownerNeck,ownerMaterial)
     if(userName && ownerShirt && ownerNeck && ownerMaterial) {
         document.getElementById('btn_confirm').classList.add('button_confirm');
         document.getElementById('btn_confirm').onclick = proceed;
@@ -75,16 +74,23 @@ function proceed() {
         author: userName
     }
 
+    
+
      url = document.getElementById('url').value
      
-     console.log(newTshirt)
-   axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts',newTshirt)
-    .then(getTshirts);
+   promise = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts',newTshirt)
+    promise.then(getTshirts);
    
-
+    promise.catch(tratarErro)
 
 }
-
+function tratarErro(err) {
+    element = document.querySelector('.error')
+    element.classList.remove('displaynot')
+    element.innerHTML = "Mensagem de erro: " + err.response.data.message
+    console.log("Status code: " + err.response.status); // Ex: 404
+      console.log("Mensagem de erro: " + err.response.data.message); // Ex: Not Found
+  }
 let promise;
 let id;
 let image;
@@ -107,8 +113,10 @@ function getTshirts() {
         owner = response.data[i].owner
         element.innerHTML += `<div class="order" id=${i} onclick="copy(this)"> <img src="${image}" style="width:180px; height: 180px" alt="Blusa1"><p>Criador: ${owner}</p></div>`
         }
-    });
+    })
 }
+
+
 
 function copy(i) {
     
@@ -132,7 +140,6 @@ function copy(i) {
         owner: userName,
         author: creator   
     }
-    console.log(newTshirt)
 
     axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts',newTshirt)
     .then(getTshirts);})
