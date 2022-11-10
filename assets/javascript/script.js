@@ -97,6 +97,12 @@ function tratarErro(err) {
     console.log("Status code: " + err.response.status); // Ex: 404
       console.log("Mensagem de erro: " + err.response.data.message); // Ex: Not Found
   }
+
+function tratarErroVanish() {
+    element = document.querySelector('.error')
+    element.classList.add('displaynot')
+
+}
 let promise;
 let id;
 let image;
