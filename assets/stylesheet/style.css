@@ -111,6 +111,14 @@ button {
     color: white;
 }
 
+button:hover {
+    cursor:not-allowed;
+}
+
+.button_confirm:hover {
+    cursor: pointer;
+}
+
 .confirm-shirt {
     border-color: #404EED !important;
 }
@@ -155,3 +163,9 @@ footer {
     margin-right: 30px;
 }
 
+.order:hover {
+    cursor: pointer;
+    border: solid;
+    border-color: green;
+    border-width: 1px;
+}

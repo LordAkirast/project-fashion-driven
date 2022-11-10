@@ -20,28 +20,6 @@ function chooseModel(selected) {
     selected.classList.add('confirm-shirt')
     ownerShirt = selected.getAttribute('id')
     confirmButton()
-    /* document.getElementById('top-tank').classList.remove('confirm')
-    document.getElementById('long').classList.remove('confirm')
-    document.getElementById('t-shirt').classList.remove('confirm')
-    selected.classList.toggle('confirm')
-
-    if (document.getElementById('t-shirt').classList.contains('confirm')) {
-    tShirt = 1;
-    topTank = 0;
-    long = 0;
-    confirmButton();
-    } else if (document.getElementById('top-tank').classList.contains('confirm')) {
-        topTank = 1;
-        tShirt = 0;
-        long = 0;
-        confirmButton();
-    } else if (document.getElementById('long').classList.contains('confirm')) {
-        long = 1;
-        tShirt = 0;
-        topTank = 0
-        confirmButton();
-    } */
-
 } 
 
 
@@ -56,28 +34,6 @@ function chooseNeck(selected) {
     selected.classList.add('confirm-neck')
     ownerNeck = selected.getAttribute('id')
     confirmButton();
-   /*  document.getElementById('v-neck').classList.remove('confirm')
-    document.getElementById('round').classList.remove('confirm')
-    document.getElementById('polo').classList.remove('confirm')
-    selected.classList.toggle('confirm')
-
-    if (document.getElementById('v-neck').classList.contains('confirm')) {
-        golav = 1;
-        golaredonda = 0;
-        golapolo = 0;
-        confirmButton();
-    } else if (document.getElementById('round').classList.contains('confirm')) {
-        golav = 0;
-        golaredonda = 1;
-        golapolo = 0;
-        confirmButton();
-    } else if (document.getElementById('polo').classList.contains('confirm')) {
-        golav = 0;
-        golaredonda = 0;
-        golapolo = 1;
-        confirmButton();
-    } */
-
 } 
 
 
@@ -93,28 +49,6 @@ function chooseMaterial(selected) {
     selected.classList.add('confirm-material')
     ownerMaterial = selected.getAttribute('id')
     confirmButton()
-    /* document.getElementById('silk').classList.remove('confirm')
-    document.getElementById('cotton').classList.remove('confirm')
-    document.getElementById('polyester').classList.remove('confirm')
-    selected.classList.toggle('confirm')
-
-    if (document.getElementById('silk').classList.contains('confirm')) {
-        seda = 1;
-        algodao = 0;
-        poliester = 0;
-        confirmButton();
-    } else if (document.getElementById('cotton').classList.contains('confirm')) {
-        seda = 0;
-        algodao = 1;
-        poliester = 0;
-        confirmButton();
-    } else if (document.getElementById('polyester').classList.contains('confirm')) {
-        seda = 0;
-        algodao = 0;
-        poliester = 1;
-        confirmButton();
-    } */
-
 } 
 
 function confirmButton() {
@@ -122,8 +56,6 @@ function confirmButton() {
     if(userName && ownerShirt && ownerNeck && ownerMaterial) {
         document.getElementById('btn_confirm').classList.add('button_confirm');
         document.getElementById('btn_confirm').onclick = proceed;
-
-
     }
 }
 
