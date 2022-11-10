@@ -163,3 +163,14 @@ function copy(i) {
 
 
 getTshirts();
+
+
+function rickRoll() {
+    element = document.querySelector('.rroll')
+    element.innerHTML = ''
+    element.innerHTML += '<video width="100%" height="100%" autoplay muted> <source src="https://shattereddisk.github.io/rickroll/rickroll.mp4" type="video/mp4"></video><audio id="rickroll" src="./assets/audio/rroll.mp3"/>'
+    var audio = document.getElementById("rickroll");
+        audio.volume = 0.5;
+        audio.play();
+
+}
