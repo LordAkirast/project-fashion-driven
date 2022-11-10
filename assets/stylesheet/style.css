@@ -179,4 +179,5 @@ footer {
     border: solid;
     border-color: green;
     border-width: 1px;
+    border-radius: 10px;
 }

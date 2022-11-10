@@ -6,6 +6,11 @@ let ownerImg;
 
 let userName = prompt('Entre com o seu nome de usuário: ');
 
+if (userName.length > 20) {
+    alert("Nome redefinido para evitar ataques DDos.")
+    userName = 'User'
+}
+
 
 document.getElementById('btn_confirm').onclick = null;
 
@@ -85,6 +90,7 @@ function proceed() {
 
 }
 function tratarErro(err) {
+    alert("Algo deu errado")
     element = document.querySelector('.error')
     element.classList.remove('displaynot')
     element.innerHTML = "Mensagem de erro: " + err.response.data.message
@@ -111,7 +117,7 @@ function getTshirts() {
         model = response.data[i].model
         neck = response.data[i].neck
         owner = response.data[i].owner
-        element.innerHTML += `<div class="order" id=${i} onclick="copy(this)"> <img src="${image}" style="width:180px; height: 180px" alt="Blusa1"><p>Criador: ${owner}</p></div>`
+        element.innerHTML += `<div class="order" id=${i} onclick="copy(this)"> <img src="${image}" style="width:180px; height: 180px; border-radius: 10px" alt="Blusa1"><p>Criador: ${owner}</p></div>`
         }
     })
 }
